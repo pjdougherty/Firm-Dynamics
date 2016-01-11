@@ -18,9 +18,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-state_data = pd.read_csv(r'G:\Publications\Annual Regional Report\2015\bds_f_agest_release.csv')
-metro_data = pd.read_csv(r'G:\Publications\Annual Regional Report\2015\bds_f_agemsa_release.csv')
-us_data = pd.read_csv(r'G:\Publications\Annual Regional Report\2015\bds_f_age_release.csv')
+state_data = pd.read_csv(r'G:\Publications\Annual Regional Report\2015\Statup Rate\bds_f_agest_release.csv')
+metro_data = pd.read_csv(r'G:\Publications\Annual Regional Report\2015\Statup Rate\bds_f_agemsa_release.csv')
+us_data = pd.read_csv(r'G:\Publications\Annual Regional Report\2015\Statup Rate\bds_f_age_release.csv')
 
 def transformDataFrame(df):
     df.rename(columns={'year2':'year', 'fage4':'fage'}, inplace=True)
@@ -103,10 +103,13 @@ def plotPercentByAge(geo, firm_age, FIPS=12580, fignum=1, size=1, SAVE=False):
             plt.savefig(r'G:\Publications\Annual Regional Report\2015\%(1)s_Share of Firm Less Than %(2)s.png' % {'1':FIPS_dict[FIPS], '2':firm_age}, alpha=True, dpi=600)
         elif geo=='national':
             plt.savefig(r'G:\Publications\Annual Regional Report\2015\US_Share of Firms Less Than %s.png' % firm_age, alpha=True, dpi=600)
-    
+
+''' FOR ACTIVE USE'''
+'''    
 transformDataFrame(metro_data)
 transformDataFrame(state_data)
 transformDataFrame(us_data)
+'''
 
 ''' Create dataframe of all of a geography's startups and startup rate
 in a year given by parameter'''
